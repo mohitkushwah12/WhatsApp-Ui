@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UiHelper {
-  static CustomButton(
+  static customButton(
       {required VoidCallback callback, required String buttonname}) {
     return SizedBox(
       height: 45,
@@ -14,12 +14,12 @@ class UiHelper {
           borderRadius: BorderRadius.circular(40)
         )),
         child: Text(buttonname,
-            style: TextStyle(fontSize: 14, color: Colors.white)),
+            style: const TextStyle(fontSize: 14, color: Colors.white)),
       ),
     );
   }
 
-  static CustomText(
+  static customText(
       {required String text,
       required double height,
       Color? color,
@@ -28,7 +28,7 @@ class UiHelper {
       text,
       style: TextStyle(
         fontSize: height,
-        color: color ?? Color(0XFF5E5E5E),
+        color: color ?? const Color(0XFF5E5E5E),
         fontWeight: fontweight
       ),
     );
