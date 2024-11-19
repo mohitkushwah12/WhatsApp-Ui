@@ -1,3 +1,4 @@
+import 'package:first_project/Screens/Otp/otpscreen.dart';
 import 'package:first_project/Widgets/uihelper.dart';
 import 'package:flutter/material.dart';
 
@@ -123,16 +124,21 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       ),
-      floatingActionButton: UiHelper.customButton(
-        callback: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
-          );
-        },
-        buttonname: "Next",
-      ),
+      floatingActionButton: UiHelper.customButton(callback: (){
+        login(phoneController.text.toString());
+      }, buttonname: "Next"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  login(String phoneNumber) {
+    if(phoneNumber == "") {
+      return ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Enter Your Phone Number"),backgroundColor: Color(0XFF00A884),));
+    }
+    else {
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> OtpScreen(phoneNumber: phoneNumber,)));
+    }
+  }
 }
+
+

@@ -33,4 +33,33 @@ class UiHelper {
       ),
     );
   }
+
+  static Widget customContainer({
+    required TextEditingController controller,
+    String? hintText,
+    TextInputType keyboardType = TextInputType.text,
+    TextAlign textAlign = TextAlign.left,
+  }) {
+    return Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: const Color(0XFFD9D9D9), // Fixed color formatting
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(11.0),
+        child: TextField(
+          controller: controller,
+          style: const TextStyle(fontSize: 30),
+          keyboardType: keyboardType,
+          textAlign: textAlign,
+          decoration: InputDecoration(
+            hintText: hintText, // Optional hint text
+            border: InputBorder.none, // No border for the text field
+          ),
+        ),
+      ),
+    );
+  }
 }
